@@ -1,0 +1,141 @@
+int a=2;
+int b=3;
+int c=4;
+int d=5;
+int e=6;
+int f=9;
+int g=7;  //g en dısta kalan
+int sayi=0;
+
+void setup() {
+  Serial.begin(9600); //9600 bound
+  Serial.println("dıstaki buton arttirir digeri azaltir.");
+  pinMode(a,OUTPUT);
+  pinMode(b,OUTPUT);
+  pinMode(c,OUTPUT);
+  pinMode(d,OUTPUT);
+  pinMode(e,OUTPUT);
+  pinMode(f,OUTPUT);
+  pinMode(g,OUTPUT);
+  pinMode(10,INPUT);
+  pinMode(11,INPUT);
+}
+
+void loop() {
+  //7 segmentli ortak katod pin'li :
+  if(digitalRead(10)==1) {
+    if(sayi==9) Serial.println("9'dan buyuk deger yazdirilamaz..");
+    else sayi++;
+  }
+  if(digitalRead(11)==1) {
+    if(sayi==0) Serial.println("0'dan kucuk deger yazdirilamaz..");
+    else sayi--;
+  }
+  Serial.println(sayi);
+  switch(sayi){
+    case 0:
+      digitalWrite(a,1);
+      digitalWrite(b,1);
+      digitalWrite(c,1);
+      digitalWrite(d,1);
+      digitalWrite(e,1);
+      digitalWrite(f,1);
+      digitalWrite(g,0);
+      delay(10);
+      break;
+    case 1:
+      digitalWrite(a,0);
+      digitalWrite(b,1);
+      digitalWrite(c,1);
+      digitalWrite(d,0);
+      digitalWrite(e,0);
+      digitalWrite(f,0);
+      digitalWrite(g,0);
+      delay(10);
+      break;
+    case 2:
+      digitalWrite(a,1);
+      digitalWrite(b,1);
+      digitalWrite(c,0);
+      digitalWrite(d,1);
+      digitalWrite(e,1);
+      digitalWrite(f,0);
+      digitalWrite(g,1);
+      delay(10);
+      break;
+    case 3:
+      digitalWrite(a,1);
+      digitalWrite(b,1);
+      digitalWrite(c,1);
+      digitalWrite(d,1);
+      digitalWrite(e,0);
+      digitalWrite(f,0);
+      digitalWrite(g,1);
+      delay(10);
+      break;
+    case 4:
+      digitalWrite(a,0);
+      digitalWrite(b,1);
+      digitalWrite(c,1);
+      digitalWrite(d,0);
+      digitalWrite(e,0);
+      digitalWrite(f,1);
+      digitalWrite(g,1);
+      delay(10);
+      break;
+    case 5:
+      digitalWrite(a,1);
+      digitalWrite(b,0);
+      digitalWrite(c,1);
+      digitalWrite(d,1);
+      digitalWrite(e,0);
+      digitalWrite(f,1);
+      digitalWrite(g,1);
+      delay(10);
+      break;
+    case 6:
+      digitalWrite(a,1);
+      digitalWrite(b,0);
+      digitalWrite(c,1);
+      digitalWrite(d,1);
+      digitalWrite(e,1);
+      digitalWrite(f,1);
+      digitalWrite(g,1);
+      delay(10);
+      break;
+    case 7:
+      digitalWrite(a,1);
+      digitalWrite(b,1);
+      digitalWrite(c,1);
+      digitalWrite(d,0);
+      digitalWrite(e,0);
+      digitalWrite(f,0);
+      digitalWrite(g,0);
+      delay(10);
+      break;
+    case 8:
+      digitalWrite(a,1);
+      digitalWrite(b,1);
+      digitalWrite(c,1);
+      digitalWrite(d,1);
+      digitalWrite(e,1);
+      digitalWrite(f,1);
+      digitalWrite(g,1);
+      delay(10);
+      break;
+    case 9:
+      digitalWrite(a,1);
+      digitalWrite(b,1);
+      digitalWrite(c,1);
+      digitalWrite(d,1);
+      digitalWrite(e,0);
+      digitalWrite(f,1);
+      digitalWrite(g,1);
+      delay(10);
+      break;
+    default:
+      //do nothing
+      break;
+  }
+  delay(300); //dugmeye bastigimizda birden cok sayi firlamasin istiyorsak delay degeri azcik yuksek olcak
+}
